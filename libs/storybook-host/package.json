@@ -1,0 +1,9 @@
+{
+  "name": "storybook-host",
+  "version": "0.0.1",
+  "description": "Host project for running shared Storybook",
+  "scripts": {},
+  "keywords": [],
+  "author": "",
+  "license": "MIT"
+}
