@@ -13,8 +13,16 @@
   },
   "tags": [],
   "targets": {
+    "analyze": {
+      "executor": "nx:run-commands",
+      "options": {
+        "cwd": "{projectRoot}",
+        "commands": ["pnpm analyze"]
+      }
+    },
     "build": {
       "executor": "@nx/vite:build",
+      "dependsOn": ["analyze"],
       "outputs": ["{options.outputPath}"],
       "options": {
         "outputPath": "dist/packages/my-component",

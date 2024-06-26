@@ -1,6 +1,9 @@
 {
   "name": "@acme/my-component",
   "version": "0.0.1",
+  "scripts": {
+    "analyze": "custom-elements-manifest analyze"
+  },
   "dependencies": {
     "lit": "^3.1.4"
   },
