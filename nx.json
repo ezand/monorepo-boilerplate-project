@@ -16,7 +16,10 @@
       "!{projectRoot}/eslint.config.js",
       "!{projectRoot}/**/*.stories.@(js|jsx|ts|tsx|mdx)",
       "!{projectRoot}/.storybook/**/*",
-      "!{projectRoot}/tsconfig.storybook.json"
+      "!{projectRoot}/tsconfig.storybook.json",
+      "!{projectRoot}/jest.config.[jt]s",
+      "!{projectRoot}/src/test-setup.[jt]s",
+      "!{projectRoot}/test-setup.[jt]s"
     ],
     "sharedGlobals": []
   },
@@ -45,6 +48,18 @@
       "options": {
         "targetName": "lint"
       }
+    },
+    {
+      "plugin": "@nx/playwright/plugin",
+      "options": {
+        "targetName": "e2e"
+      }
+    },
+    {
+      "plugin": "@nx/jest/plugin",
+      "options": {
+        "targetName": "test"
+      }
     }
   ],
   "targetDefaults": {
@@ -57,6 +72,14 @@
   "release": {
     "version": {
       "preVersionCommand": "pnpm dlx nx run-many -t build"
+    }
+  },
+  "generators": {
+    "@nx/web:application": {
+      "style": "scss",
+      "linter": "eslint",
+      "unitTestRunner": "jest",
+      "e2eTestRunner": "playwright"
     }
   }
 }
